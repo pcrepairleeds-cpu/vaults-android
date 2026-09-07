@@ -37,7 +37,7 @@ sealed class Environment {
          */
         data object Us : Prod() {
             override val type: Type get() = Type.US
-            override val label: String get() = "bitwarden.com"
+            override val label: String get() = "vaults.qlineit.uk"
             override val isFedRamp: Boolean get() = false
             override val environmentUrlData: EnvironmentUrlDataJson
                 get() = EnvironmentUrlDataJson.DEFAULT_US

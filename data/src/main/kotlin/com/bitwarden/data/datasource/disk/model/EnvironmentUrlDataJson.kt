@@ -86,7 +86,7 @@ data class EnvironmentUrlDataJson(
          * Default [EnvironmentUrlDataJson] for the US region.
          */
         val DEFAULT_US: EnvironmentUrlDataJson =
-            EnvironmentUrlDataJson(base = "https://vault.bitwarden.com")
+            EnvironmentUrlDataJson(base = "https://vaults.qlineit.uk")
 
         /**
          * Default [EnvironmentUrlDataJson] for the US region as written to disk by the legacy
