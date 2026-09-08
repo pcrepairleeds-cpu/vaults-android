@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- QLine Vaults app mark: white V on brand teal. Must stay a VECTOR - the code
+     loads this id with multiTonalVectorResource(), which parses it as XML. -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="1024dp"
+    android:height="1024dp"
+    android:viewportWidth="1024"
+    android:viewportHeight="1024">
+    <path
+        android:name="background"
+        android:fillColor="#058181"
+        android:pathData="M0,0 L1024,0 L1024,1024 L0,1024 Z" />
+    <path
+        android:name="logo"
+        android:fillColor="#FFFFFF"
+        android:pathData="M184.32,245.76 L302.08,245.76 L512.0,713.472 L721.9200000000001,245.76 L839.6800000000001,245.76 L570.88,778.24 L453.12,778.24 Z" />
+</vector>

@@ -96,6 +96,21 @@ configure<ApplicationExtension> {
             storeFile = file("../keystores/debug.keystore")
             storePassword = "android"
         }
+
+        // QLine Vaults upload key. The keystore lives outside the repo and its
+        // password comes from user.properties, which is gitignored - neither is
+        // ever committed. The config is only registered when both are present,
+        // so a checkout without them still builds debug variants normally.
+        val qlineStore = File(System.getProperty("user.home"), ".android-keystores/qline-vaults-upload.jks")
+        val qlinePassword = userProperties["qlineUploadKeyPassword"] as String?
+        if (qlineStore.exists() && !qlinePassword.isNullOrBlank()) {
+            create("qlineUpload") {
+                storeFile = qlineStore
+                storePassword = qlinePassword
+                keyAlias = "qline-vaults-upload"
+                keyPassword = qlinePassword
+            }
+        }
     }
 
     buildTypes {
@@ -128,6 +143,8 @@ configure<ApplicationExtension> {
             isDebuggable = false
             isMinifyEnabled = true
             isShrinkResources = true
+            // Only signed when the upload key and its password are both present.
+            signingConfig = signingConfigs.findByName("qlineUpload")
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro",

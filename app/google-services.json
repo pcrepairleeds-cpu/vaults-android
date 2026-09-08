@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "816076152805",
+    "project_id": "qline-vaults",
+    "storage_bucket": "qline-vaults.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:816076152805:android:ccfb704a80b1669594590c",
+        "android_client_info": {
+          "package_name": "uk.qlineit.vaults"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBw336ppvVyU895DDP4AW7eWgza_VidALY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
