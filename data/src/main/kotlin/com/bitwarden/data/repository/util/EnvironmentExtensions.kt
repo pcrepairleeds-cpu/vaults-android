@@ -4,23 +4,31 @@ import com.bitwarden.data.datasource.disk.model.EnvironmentUrlDataJson
 import com.bitwarden.data.repository.model.Environment
 import java.net.URI
 
-private const val DEFAULT_US_API_URL: String = "https://api.bitwarden.com"
-private const val DEFAULT_EU_API_URL: String = "https://api.bitwarden.eu"
-private const val DEFAULT_FED_RAMP_API_URL: String = "https://api.bitwarden-gov.com"
-private const val DEFAULT_US_EVENTS_URL: String = "https://events.bitwarden.com"
-private const val DEFAULT_EU_EVENTS_URL: String = "https://events.bitwarden.eu"
-private const val DEFAULT_FED_RAMP_EVENTS_URL: String = "https://events.bitwarden-gov.com"
-private const val DEFAULT_US_IDENTITY_URL: String = "https://identity.bitwarden.com"
-private const val DEFAULT_EU_IDENTITY_URL: String = "https://identity.bitwarden.eu"
-private const val DEFAULT_FED_RAMP_IDENTITY_URL: String = "https://identity.bitwarden-gov.com"
-private const val DEFAULT_US_WEB_VAULT_URL: String = "https://vaults.qlineit.uk"
-private const val DEFAULT_EU_WEB_VAULT_URL: String = "https://vault.bitwarden.eu"
-private const val DEFAULT_FED_RAMP_WEB_VAULT_URL: String = "https://vault.bitwarden-gov.com"
-private const val DEFAULT_US_WEB_SEND_URL: String = "https://send.bitwarden.com/#"
-private const val DEFAULT_FED_RAMP_WEB_SEND_URL: String = "https://send.bitwarden-gov.com/#"
-private const val DEFAULT_US_ICON_URL: String = "https://icons.bitwarden.net"
-private const val DEFAULT_EU_ICON_URL: String = "https://icons.bitwarden.eu"
-private const val DEFAULT_FED_RAMP_ICON_URL: String = "https://icons.bitwarden-gov.com"
+// Every region points at QLine's own server. Upstream hardcodes these per region
+// and IGNORES the base URL for the built-in Prod regions, so changing
+// EnvironmentUrlDataJson.DEFAULT_US alone changes the label but still
+// authenticates against api.bitwarden.com. All regions are repointed rather than
+// just US, so no combination of settings can send QLine credentials to a third
+// party. Vaultwarden serves every endpoint from one host under fixed paths.
+private const val QLINE_VAULTS_URL: String = "https://vaults.qlineit.uk"
+
+private const val DEFAULT_US_API_URL: String = "$QLINE_VAULTS_URL/api"
+private const val DEFAULT_EU_API_URL: String = "$QLINE_VAULTS_URL/api"
+private const val DEFAULT_FED_RAMP_API_URL: String = "$QLINE_VAULTS_URL/api"
+private const val DEFAULT_US_EVENTS_URL: String = "$QLINE_VAULTS_URL/events"
+private const val DEFAULT_EU_EVENTS_URL: String = "$QLINE_VAULTS_URL/events"
+private const val DEFAULT_FED_RAMP_EVENTS_URL: String = "$QLINE_VAULTS_URL/events"
+private const val DEFAULT_US_IDENTITY_URL: String = "$QLINE_VAULTS_URL/identity"
+private const val DEFAULT_EU_IDENTITY_URL: String = "$QLINE_VAULTS_URL/identity"
+private const val DEFAULT_FED_RAMP_IDENTITY_URL: String = "$QLINE_VAULTS_URL/identity"
+private const val DEFAULT_US_WEB_VAULT_URL: String = QLINE_VAULTS_URL
+private const val DEFAULT_EU_WEB_VAULT_URL: String = QLINE_VAULTS_URL
+private const val DEFAULT_FED_RAMP_WEB_VAULT_URL: String = QLINE_VAULTS_URL
+private const val DEFAULT_US_WEB_SEND_URL: String = "$QLINE_VAULTS_URL/#/send/"
+private const val DEFAULT_FED_RAMP_WEB_SEND_URL: String = "$QLINE_VAULTS_URL/#/send/"
+private const val DEFAULT_US_ICON_URL: String = "$QLINE_VAULTS_URL/icons"
+private const val DEFAULT_EU_ICON_URL: String = "$QLINE_VAULTS_URL/icons"
+private const val DEFAULT_FED_RAMP_ICON_URL: String = "$QLINE_VAULTS_URL/icons"
 
 /**
  * Returns the base api URL or the default value if one is not present.
