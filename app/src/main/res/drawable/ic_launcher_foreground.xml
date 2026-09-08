@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- QLine Vaults launcher mark: a white "V" for Vaults on the brand teal
-     background. Adaptive icons are masked to a circle, so the mark sits inside
-     the 66x66 safe zone rather than filling the 108x108 canvas. -->
+     background (@color/ic_launcher_background).
+
+     NOTE: this file exists in app/src/main, app/src/release AND app/src/beta.
+     A build type's res/ overrides main/, so editing only main/ changes nothing
+     in a release build. Keep all three identical. -->
 <vector xmlns:android="http://schemas.android.com/apk/res/android"
     android:width="108dp"
     android:height="108dp"

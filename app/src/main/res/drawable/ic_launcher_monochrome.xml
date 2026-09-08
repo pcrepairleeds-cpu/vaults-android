@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- QLine Vaults themed-icon layer: the same "V" as the foreground, drawn in a
-     single flat colour. Android 13+ tints this layer to match the user's
-     wallpaper, so it MUST match ic_launcher_foreground or the icon changes
-     shape when themed icons are switched on. -->
+<!-- QLine Vaults themed-icon layer: the same "V" as the foreground, flat colour.
+     Android 13+ tints and draws THIS layer when themed icons are enabled, so it
+     must match ic_launcher_foreground or the icon changes shape when the user
+     toggles a system setting.
+
+     Exists in main/, release/ and beta/ - keep all three identical. -->
 <vector xmlns:android="http://schemas.android.com/apk/res/android"
     android:width="108dp"
     android:height="108dp"
