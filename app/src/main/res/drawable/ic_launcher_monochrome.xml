@@ -1,20 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- QLine Vaults launcher mark: a white "Q" on the brand teal background.
-     Adaptive icons are masked to a circle, so the mark sits inside the
-     66x66 safe zone rather than filling the 108x108 canvas. -->
+<!-- QLine Vaults themed-icon layer: the same "V" as the foreground, drawn in a
+     single flat colour. Android 13+ tints this layer to match the user's
+     wallpaper, so it MUST match ic_launcher_foreground or the icon changes
+     shape when themed icons are switched on. -->
 <vector xmlns:android="http://schemas.android.com/apk/res/android"
     android:width="108dp"
     android:height="108dp"
     android:viewportWidth="108"
     android:viewportHeight="108">
     <path
-        android:pathData="M54,32 A22,22 0 1 0 54,76 A22,22 0 1 0 54,32 Z"
-        android:fillColor="#00000000"
-        android:strokeColor="#FF000000"
-        android:strokeWidth="8" />
-    <path
-        android:pathData="M62,64 L76,78"
-        android:strokeColor="#FF000000"
-        android:strokeWidth="8"
-        android:strokeLineCap="round" />
+        android:fillColor="#FFFFFFFF"
+        android:pathData="M32,34 L40,34 L54,68 L68,34 L76,34 L58,76 L50,76 Z" />
 </vector>
